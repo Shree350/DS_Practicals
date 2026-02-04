@@ -11,7 +11,7 @@ public class Exepriment3 {
         return -1;
     }
 
-    // Binary Search (array must be sorted)
+    // Binary Search 
     static int binarySearch(int arr[], int key) {
         int low = 0, high = arr.length - 1;
 
@@ -69,6 +69,74 @@ public class Exepriment3 {
         }
     }
 
+
+    // add after learning practical
+    // 🔹 Merge Sort
+    static void mergeSort(int arr[], int low, int high) {
+        if (low < high) {
+            int mid = (low + high) / 2;
+            mergeSort(arr, low, mid);
+            mergeSort(arr, mid + 1, high);
+            merge(arr, low, mid, high);
+        }
+    }
+
+    static void merge(int arr[], int low, int mid, int high) {
+        int n1 = mid - low + 1;
+        int n2 = high - mid;
+
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        for (int i = 0; i < n1; i++)
+            L[i] = arr[low + i];
+        for (int j = 0; j < n2; j++)
+            R[j] = arr[mid + 1 + j];
+
+        int i = 0, j = 0, k = low;
+
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j])
+                arr[k++] = L[i++];
+            else
+                arr[k++] = R[j++];
+        }
+
+        while (i < n1)
+            arr[k++] = L[i++];
+        while (j < n2)
+            arr[k++] = R[j++];
+    }
+
+    // 🔹 Quick Sort
+    static int partition(int arr[], int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
+    }
+
+    static void quickSort(int arr[], int low, int high) {
+        if (low < high) {
+            int p = partition(arr, low, high);
+            quickSort(arr, low, p - 1);
+            quickSort(arr, p + 1, high);
+        }
+    }
+
     // Display Array
     static void display(int arr[]) {
         for (int x : arr)
@@ -97,8 +165,11 @@ public class Exepriment3 {
             System.out.println("3. Bubble Sort");
             System.out.println("4. Insertion Sort");
             System.out.println("5. Selection Sort");
-            System.out.println("6. Display Array");
+            System.out.println("6.Merge Sort");
+            System.out.println("7.Quick Sort");
+            System.out.println("8.Display");
             System.out.println("0. Exit");
+
 
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
@@ -144,7 +215,14 @@ public class Exepriment3 {
                     break;
 
                 case 6:
-                    System.out.println("Array elements:");
+                    mergeSort(arr, 0, arr.length - 1);
+                    display(arr);
+                    break;
+                case 7:
+                    quickSort(arr, 0, arr.length - 1);
+                    display(arr);
+                    break;
+                case 8:
                     display(arr);
                     break;
 
@@ -161,3 +239,4 @@ public class Exepriment3 {
         sc.close();
     }
 }
+
