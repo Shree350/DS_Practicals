@@ -1,26 +1,31 @@
 import java.util.Scanner;
 
-public class Experiment4 {
+public class Experiment3 {
 
     // Bubble Sort
-    static void bubbleSort(int arr[]) {
+    // optimized bubble sort
+    public static void bubbleSort(int arr[]) {
         for (int i = 0; i < arr.length - 1; i++) {
-            // boolean swapped = false;
-            for (int j = 0; j < arr.length - i - 1; j++) {
+            boolean swapped = false;
+
+            for (int j = 0; j < arr.length - i - 1; j++) {  
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-                    // swapperd = true;
+                    swapped = true;
                 }
             }
-            // swapped++;
+
+            if (swapped == false) {
+                break;
+            }
         }
     }
 
     // Insertion Sort
-    static void insertionSort(int arr[]) {
-        for (int i = 1; i < arr.length; i++) {
+    public static void insertionSort(int arr[]) {
+        for(int i = 1; i < arr.length; i++) {
             int curr = arr[i];
             int prev = i - 1;
 
@@ -33,7 +38,7 @@ public class Experiment4 {
     }
 
     // Selection Sort
-    static void selectionSort(int arr[]) {
+    public static void selectionSort(int arr[]) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min = i;
 
@@ -49,7 +54,7 @@ public class Experiment4 {
     }
 
     // Merge Sort
-    static void mergeSort(int arr[], int si, int ei) {
+    public static void mergeSort(int arr[], int si, int ei) {
         if (si >= ei)
             return;
 
@@ -60,7 +65,7 @@ public class Experiment4 {
         merge(arr, si, mid, ei);
     }
 
-    static void merge(int arr[], int si, int mid, int ei) {
+    public static void merge(int arr[], int si, int mid, int ei) {
         int temp[] = new int[ei - si + 1];
 
         int i = si, j = mid + 1, k = 0;
@@ -83,7 +88,7 @@ public class Experiment4 {
     }
 
     // Quick Sort
-    static void quickSort(int arr[], int si, int ei) {
+    public static void quickSort(int arr[], int si, int ei) {
         if (si >= ei)
             return;
 
@@ -92,7 +97,7 @@ public class Experiment4 {
         quickSort(arr, pIdx + 1, ei);
     }
 
-    static int partition(int arr[], int si, int ei) {
+    public static int partition(int arr[], int si, int ei) {
         int pivot = arr[ei];
         int i = si - 1;
 
@@ -114,7 +119,7 @@ public class Experiment4 {
     }
 
     // Display
-    static void display(int arr[]) {
+    public static void display(int arr[]) {
         for (int num : arr)
             System.out.print(num + " ");
         System.out.println();
@@ -194,4 +199,5 @@ public class Experiment4 {
         sc.close();
     }
 }
+
 
