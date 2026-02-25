@@ -59,10 +59,12 @@ public class Exeperiment6 {
 
         do {
             System.out.println("\n--- MENU ---");
+            System.out.println("========================================");
             System.out.println("1. EnQueue");
             System.out.println("2. DeQueue");
             System.out.println("3. Display");
             System.out.println("0. Exit");
+            System.out.println("========================================");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
@@ -96,3 +98,4 @@ public class Exeperiment6 {
         sc.close();
     }
 }
+
