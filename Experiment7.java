@@ -9,7 +9,7 @@ class node{
             this.next = null;
         }
     }
-public class Experiment7 {
+public class Experiment7_1 {
 
     public static node insertiotAtBigning(node head,int value){
         node newnode = new node(value); // create a new node
@@ -117,7 +117,7 @@ public class Experiment7 {
 
         case 1:
             System.out.print("Enter value: ");
-            value = sc.nextInt();
+            value = sc.nextInt(); 
             head = insertiotAtBigning(head, value);
             break;
 
