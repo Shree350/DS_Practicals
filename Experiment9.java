@@ -14,7 +14,7 @@ public class BinaryTree {
     node root;
     Scanner sc = new Scanner(System.in);
 
-    // 🔥 Create Tree
+    // Create Tree
     node createTree() {
         System.out.print("Enter data (-1 for NULL): ");
         int data = sc.nextInt();
